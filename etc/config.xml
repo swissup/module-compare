@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <swissup_compare>
+            <general>
+                <enable_compare_design>0</enable_compare_design>
+                <disable_magento_compare>0</disable_magento_compare>
+            </general>
+        </swissup_compare>
+    </default>
+</config>

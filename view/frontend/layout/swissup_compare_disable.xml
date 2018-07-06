@@ -1,0 +1,10 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Swissup_Compare::css/hide_compare.css"/>
+    </head>
+    <body>
+        <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+        <referenceBlock name="view.addto.compare" remove="true" />
+        <referenceBlock name="catalog.compare.link" remove="true"/>
+    </body>
+</page>

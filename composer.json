@@ -1,0 +1,29 @@
+{
+    "name": "swissup/compare",
+    "description": "Compare page design",
+    "keywords": [
+        "compare"
+    ],
+    "type": "magento2-module",
+    "version": "0.6.0",
+    "license": "OSL-3.0",
+    "require": {
+        "swissup/core": "*"
+    },
+    "autoload": {
+        "files": [ "registration.php" ],
+        "psr-4": {
+            "Swissup\\Compare\\": ""
+        }
+    },
+    "extra": {
+        "swissup": {
+            "links": {
+                "marketplace"   : "https://marketplace.magento.com/swissup-compare.html",
+                "store"         : "https://swissuplabs.com/",
+                "docs"          : "http://docs.swissuplabs.com/m2/extensions/compare/",
+                "changelog"     : "http://docs.swissuplabs.com/m2/extensions/compare/changelog/"
+            }
+        }
+    }
+}
