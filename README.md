@@ -4,8 +4,8 @@
 
 ### Features
 
- *  Changing default magento **Products compare** page look
- *  Adding option to **Disable** compare functionality in **Magento**
+ - [ ] Changing default magento **Products compare** page look
+ - [x] Adding option to **Disable** compare functionality in **Magento**
 
 ### Installation
 
