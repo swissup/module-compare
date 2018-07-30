@@ -43,6 +43,7 @@
             background: rgba(230,230,230,.95);
         }
         tr {
+            transition: background-color .1s ease-in;
             &:hover {
                 background-color: rgba(0,0,0, .02)
             }
@@ -58,5 +59,10 @@
     .cell.product.info,
     .cell.product.label {
         vertical-align: top;
+    }
+}
+.table-wrapper.comparison {
+    .floatThead-container {
+        z-index: 3 !important;
     }
 }
