@@ -27,7 +27,8 @@
                         <?php $_i = 0 ?>
                         <?php foreach ($block->getItems() as $_item): ?>
                             <?php if ($_i++ == 0): ?>
-                                <td scope="row" class="cell label remove"><span><?= /* @escapeNotVerified */ __('Remove Product') ?></span></td>
+                                <td scope="row" class="cell label remove"><span><?= /* @escapeNotVerified */ __('Remove Product') ?></span>
+                                </td>
                             <?php endif; ?>
                             <td class="cell remove product">
                                 <?php $compareHelper = $this->helper('Magento\Catalog\Helper\Product\Compare');?>
@@ -45,7 +46,11 @@
                         <?php /** @var $_item \Magento\Catalog\Model\Product */ ?>
                         <?php foreach ($block->getItems() as $_item): ?>
                             <?php if ($_i++ == 0): ?>
-                                <th scope="row" class="cell label product"><span><?= /* @escapeNotVerified */ __('Product') ?></span></th>
+                                <th scope="row" class="cell label product"><span><?= /* @escapeNotVerified */ __('Product') ?></span>
+                                    <!-- The Toggle -->
+                                    <input class="tgl tgl-flip" id="cb5" type="checkbox" name="difference_toggler" />
+                                    <label class="tgl-btn" data-tg-off="Show All" data-tg-on="Differences" for="cb5"></label>
+                                </th>
                             <?php endif; ?>
                             <td data-th="<?= $block->escapeHtml(__('Product')) ?>" class="cell product info">
                                 <a class="product-item-photo" href="<?= /* @escapeNotVerified */ $block->getProductUrl($_item) ?>" title="<?= /* @escapeNotVerified */ $block->stripTags($_item->getName(), null, true) ?>">
