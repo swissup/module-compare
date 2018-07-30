@@ -22,7 +22,7 @@
                         "productAddToCartSelector":"button.action.tocart"}
                 }}'>
                 <caption class="table-caption"><?= /* @escapeNotVerified */ __('Compare Products') ?></caption>
-                <thead>
+                <thead data-mage-init='{"Swissup_Compare/js/compare": {}}'>
                     <tr>
                         <?php $_i = 0 ?>
                         <?php foreach ($block->getItems() as $_item): ?>
@@ -48,8 +48,9 @@
                             <?php if ($_i++ == 0): ?>
                                 <th scope="row" class="cell label product"><span><?= /* @escapeNotVerified */ __('Product') ?></span>
                                     <!-- The Toggle -->
+                                    <p class="heading"><?= $block->escapeHtml(__('View All attributes or Just Differences')) ?></p>
                                     <input class="tgl tgl-flip" id="cb5" type="checkbox" name="difference_toggler" />
-                                    <label class="tgl-btn" data-tg-off="Show All" data-tg-on="Differences" for="cb5"></label>
+                                    <label class="tgl-btn" data-tg-off="<?= $block->escapeHtml(__('Show All')) ?>" data-tg-on="<?= $block->escapeHtml(__('Differences')) ?>" for="cb5"></label>
                                 </th>
                             <?php endif; ?>
                             <td data-th="<?= $block->escapeHtml(__('Product')) ?>" class="cell product info">

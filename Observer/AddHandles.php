@@ -40,10 +40,18 @@ class AddHandles implements ObserverInterface
      */
     public function execute(Observer $observer)
     {
-        if ($this->isCompareDisabled()){
+        if ($this->isCompareDisabled()) {
             /** @var LayoutInterface $layout */
             $layout = $observer->getData('layout');
             $layout->getUpdate()->addHandle('swissup_compare_disable');
+        }
+
+        $action = $observer->getFullActionName();
+
+        if ($this->isStylingEnabled() && $action === 'catalog_product_compare_index') {
+            /** @var LayoutInterface $layout */
+            $layout = $observer->getData('layout');
+            $layout->getUpdate()->addHandle('swissup_compare');
         }
     }
 
