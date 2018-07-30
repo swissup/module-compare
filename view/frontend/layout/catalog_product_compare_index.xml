@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Swissup_Compare::css/compare_page.css"/>
+    </head>
+    <body>
+        <referenceBlock name="catalog.compare.list" template="Swissup_Compare::compare/list.phtml"/>
+        <referenceContainer name="before.body.end">
+            <block class="Magento\Framework\View\Element\Text" name="compare.text.block">
+                <arguments>
+                    <argument translate="true" name="text" xsi:type="string"><![CDATA[
+                            <script type="text/x-magento-init">
+                                {
+                                    ".table-comparison thead":{
+                                        "Swissup_Compare/js/compare": {}
+                                    }
+                                }
+                            </script>
+                        ]]></argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
