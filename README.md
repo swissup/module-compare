@@ -4,8 +4,11 @@
 
 ### Features
 
- - [ ] Changing default magento **Products compare** page look
+ - [x] Changing default magento **Products compare** page look
+     - [x] Add Sticky header
+     - [x] Add Sticky attributes sidebar
  - [x] Adding option to **Disable** compare functionality in **Magento**
+ - [ ] Add "Show All / Show Differences" option
 
 ### Installation
 
