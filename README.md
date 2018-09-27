@@ -15,7 +15,7 @@
 ```bash
 cd <magento_root>
 composer config repositories.swissup composer https://docs.swissuplabs.com/packages/
-composer require swissup/compare
+composer require swissup/module-compare
 
 bin/magento module:enable Swissup_Compare
 bin/magento setup:upgrade
