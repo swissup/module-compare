@@ -135,7 +135,10 @@
                                             <?php $block->getImage($_item, 'product_small_image')->toHtml(); ?>
                                             <?php break;
                                         default: ?>
-                                        <?= /* @escapeNotVerified */ $_helper->productAttribute($_item, $block->getProductAttributeValue($_item, $_attribute), $_attribute->getAttributeCode()) ?>
+                                            <?php $value = $block->getProductAttributeValue($_item, $_attribute); ?>
+                                            <?php if (is_string($value)) : ?>
+                                                <?= /* @escapeNotVerified */ $_helper->productAttribute($_item, $value, $_attribute->getAttributeCode()) ?>
+                                            <?php endif ?>
                                         <?php break;
                                     } ?>
                                 </div>
