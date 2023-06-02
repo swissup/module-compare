@@ -1,7 +1,12 @@
-define([
-    'jquery',
-    'Swissup_Compare/js/jquery.floatThead'
-], function ($) {
+(function (factory) {
+    'use strict';
+
+    if (typeof define === 'function' && define.amd) {
+        define(['jquery'], factory);
+    } else {
+        $.compare = factory($);
+    }
+}(function ($) {
     'use strict';
 
     function hasDifference (tr) {
@@ -25,30 +30,26 @@ define([
         return isDifference;
     }
 
-    return function () {
-        var rowsArray = [];
 
-        rowsArray = $('.table-comparison tbody tr');
+    let rowsArray = $('.table-comparison tbody tr'),
+        btnDifferences = $('[name="btn_differences"]');
 
-        $('#cb5').change(function () {
-            if ($(this).is(':checked')) {
-                rowsArray.each(function (index, trElement) {
-                    if ($('div.value', trElement).length) {
-                        if (!hasDifference(trElement)) {
-                            $(trElement).hide(300);
-                        }
+    $(btnDifferences).on("click", function () {
+
+        if ($(this).is(':checked')) {
+            rowsArray.each(function (index, trElement) {
+                if ($('div.value', trElement).length) {
+                    if (!hasDifference(trElement)) {
+                        $(trElement).hide(300);
                     }
-                });
-            } else {
-                rowsArray.each(function (index, trElement) {
-                    $(trElement).show(300);
-                });
-            }
-        });
+                }
+            });
+        } else {
+            rowsArray.each(function (index, trElement) {
+                $(trElement).show(300);
+            });
+        }
 
-        $('table.table-comparison').floatThead({
-            position: 'absolute',
-            zIndex: 1
-        });
-    };
-});
+    });
+
+}));

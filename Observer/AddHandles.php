@@ -6,29 +6,21 @@ use Magento\Framework\Event\ObserverInterface;
 use Magento\Framework\Event\Observer;
 use Magento\Framework\View\LayoutInterface;
 
-/**
- * Class AddHandles
- *
- * Add custom layout handles to te page
- *
- * @package Swissup\Compare\Observer
- */
 class AddHandles implements ObserverInterface
 {
     /**
-     * @var \Magento\Framework\App\Config\ScopeConfigInterface
+     * @var Swissup\Compare\Helper\Data
      */
-    protected $scopeConfig;
+    protected $helper;
 
     /**
-     * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
+     * @param \Swissup\Compare\Helper\Data $helper
      */
     public function __construct(
-        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
+        \Swissup\Compare\Helper\Data $helper
     ) {
-        $this->scopeConfig = $scopeConfig;
+        $this->helper = $helper;
     }
-
 
     /**
      * Add handles to the page.
@@ -40,34 +32,20 @@ class AddHandles implements ObserverInterface
      */
     public function execute(Observer $observer)
     {
-        if ($this->isCompareDisabled()) {
+        if (!$this->helper->isEnabled()) {
             /** @var LayoutInterface $layout */
             $layout = $observer->getData('layout');
             $layout->getUpdate()->addHandle('swissup_compare_disable');
         }
 
-        $action = $observer->getFullActionName();
+        if ($observer->getFullActionName() !== 'catalog_product_compare_index') {
+            return;
+        }
 
-        if ($this->isStylingEnabled() && $action === 'catalog_product_compare_index') {
+        if ($this->helper->useAlternativeDesign()) {
             /** @var LayoutInterface $layout */
             $layout = $observer->getData('layout');
             $layout->getUpdate()->addHandle('swissup_compare');
         }
-    }
-
-    public function isCompareDisabled()
-    {
-        return $this->scopeConfig->isSetFlag(
-            'swissup_compare/general/disable_magento_compare',
-            \Magento\Store\Model\ScopeInterface::SCOPE_STORE
-        );
-    }
-
-    public function isStylingEnabled()
-    {
-        return $this->scopeConfig->isSetFlag(
-            'swissup_compare/general/enable_compare_design',
-            \Magento\Store\Model\ScopeInterface::SCOPE_STORE
-        );
     }
 }

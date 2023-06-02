@@ -4,8 +4,8 @@
     <default>
         <swissup_compare>
             <general>
-                <enable_compare_design>0</enable_compare_design>
-                <disable_magento_compare>0</disable_magento_compare>
+                <enabled>1</enabled>
+                <use_alternative_design>0</use_alternative_design>
             </general>
         </swissup_compare>
     </default>
