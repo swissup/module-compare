@@ -5,10 +5,6 @@
         <css src="Swissup_Compare::css/compare_page.css" media="screen, print"/>
     </head>
     <body>
-        <referenceBlock name="catalog.compare.list" template="Swissup_Compare::compare/list.phtml">
-            <arguments>
-                <argument name="text" xsi:type="string"><![CDATA[<div data-mage-init='{"Swissup_Compare/js/compare": {}}'></div>]]></argument>
-            </arguments>
-        </referenceBlock>
+        <referenceBlock name="catalog.compare.list" template="Swissup_Compare::compare/list.phtml"/>
     </body>
 </page>

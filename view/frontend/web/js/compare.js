@@ -38,7 +38,8 @@
 
         if ($(this).is(':checked')) {
             rowsArray.each(function (index, trElement) {
-                if ($('div.value', trElement).length) {
+                let attribute = $('div.value', trElement);
+                if (attribute.length) {
                     if (!hasDifference(trElement)) {
                         $(trElement).hide(300);
                     }
