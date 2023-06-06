@@ -31,14 +31,8 @@ $showAttributesLabels = $this->helper('Swissup\Compare\Helper\Data')->showAttrib
             <span><?= /* @escapeNotVerified */ __('Print This Page') ?></span>
         </a>
     </div>
-    <div class="table-wrapper comparison" data-mage-init='{"Swissup_Compare/js/compare": {}}'>
-        <table class="data table table-comparison" id="product-comparison"
-            data-mage-init='{"compareList":{
-                "windowPrintSelector":".action.print",
-                "productsInRow":"5",
-                "selectors":{
-                    "productAddToCartSelector":"button.action.tocart"}
-            }}'>
+    <div class="table-wrapper comparison" data-mage-init='{"Swissup_Compare/js/compare": {"table": ".table-comparison", "windowPrintSelector":".action.print"}}'>
+        <table class="data table table-comparison" id="product-comparison">
             <caption class="table-caption"><?= /* @escapeNotVerified */ __('Compare Products') ?></caption>
             <thead>
             <tr>

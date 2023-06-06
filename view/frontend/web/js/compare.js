@@ -20,7 +20,7 @@
             if (nextTd.length) {
                 tdValue = $('div.value', td).text().trim();
                 nextTdValue = $('div.value', nextTd).text().trim();
-                // console.log(tdValue + ' === ' + nextTdValue);
+
                 if (tdValue !== nextTdValue) {
                     isDifference = true;
                 }
@@ -30,27 +30,34 @@
         return isDifference;
     }
 
+    return function (config, element) {
+        let table = config.table,
+            tableRows = $(table + ' tbody tr'),
+            btnDifferences = $('[name="btn_differences"]'),
+            optionWindowPrintSelector = config.windowPrintSelector ?? '';
 
-    let rowsArray = $('.table-comparison tbody tr'),
-        btnDifferences = $('[name="btn_differences"]');
-
-    $(btnDifferences).on("click", function () {
-
-        if ($(this).is(':checked')) {
-            rowsArray.each(function (index, trElement) {
-                let attribute = $('div.value', trElement);
-                if (attribute.length) {
-                    if (!hasDifference(trElement)) {
-                        $(trElement).hide(300);
+        $(btnDifferences).on("click", function () {
+            if ($(this).is(':checked')) {
+                tableRows.each(function (index, tr) {
+                    let attributes = $('div.value', tr);
+                    if (attributes.length) {
+                        if (!hasDifference(tr)) {
+                            $(tr).hide(300);
+                        }
                     }
-                }
-            });
-        } else {
-            rowsArray.each(function (index, trElement) {
-                $(trElement).show(300);
-            });
-        }
+                });
+            } else {
+                tableRows.each(function (index, tr) {
+                    $(tr).show(300);
+                });
+            }
 
-    });
+        });
+
+        $(optionWindowPrintSelector).on('click', function (e) {
+            e.preventDefault();
+            window.print();
+        });
+    }
 
 }));
