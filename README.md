@@ -1,13 +1,5 @@
 # Swissup Compare
 
-### Features
-
- - [x] Changing default magento **Products compare** page look
-     - [x] Add Sticky header
-     - [x] Add Sticky attributes sidebar
- - [x] Adding option to **Disable** compare functionality in **Magento**
- - [ ] Add "Show All / Show Differences" option
-
 ## Installation
 
 ### For clients
@@ -32,13 +24,4 @@ bin/magento module:enable Swissup_Compare
 bin/magento setup:upgrade
 ```
 
-### Admin location
-
-_Stores > Configuration > Swissup > Compare_
-
-### Options
-
- *  Enable **Alternative "Compare page"** design
-    _(Default = NO)_
- *  Hide default Magento **"Compare"** functionality
-    _(Default = NO)_
+_You can find Admin Configuration at: Stores -> Configuration -> Swissup -> Compare_
