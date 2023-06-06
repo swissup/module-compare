@@ -1,10 +1,12 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-    <head>
-        <css src="Swissup_Compare::css/hide_compare.css" media="screen, print"/>
-    </head>
     <body>
         <referenceBlock name="catalog.compare.sidebar" remove="true"/>
         <referenceBlock name="view.addto.compare" remove="true" />
         <referenceBlock name="catalog.compare.link" remove="true"/>
+        <referenceBlock name="catalogsearch.product.addto.compare" remove="true"/>
+        <referenceBlock name="category.product.addto.compare" remove="true"/>
+        <referenceBlock name="crosssell.product.addto.compare" remove="true" />
+        <referenceBlock name="related.product.addto.compare" remove="true" />
+        <referenceBlock name="upsell.product.addto.compare" remove="true" />
     </body>
 </page>
