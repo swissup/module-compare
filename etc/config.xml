@@ -5,7 +5,7 @@
         <swissup_compare>
             <general>
                 <enabled>1</enabled>
-                <use_alternative_design>0</use_alternative_design>
+                <use_alternative_design>1</use_alternative_design>
             </general>
         </swissup_compare>
     </default>
