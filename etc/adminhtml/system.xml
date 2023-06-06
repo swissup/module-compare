@@ -24,6 +24,9 @@
                 <field id="show_attributes_labels" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Show attributes labels</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="use_alternative_design">1</field>
+                    </depends>
                 </field>
             </group>
         </section>
