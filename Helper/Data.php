@@ -9,7 +9,8 @@ use Magento\Store\Model\ScopeInterface;
 class Data extends AbstractHelper
 {
     const CONFIG_PATH_ENABLED = 'swissup_compare/general/enabled';
-    const CONFIG_PATH_USE_ALTERNATIVE_DESIGN = 'swissup_compare/general/use_alternative_design';
+    const CONFIG_PATH_USE_ALTERNATIVE_DESIGN = 'swissup_compare/design/use_alternative_design';
+    const CONFIG_PATH_SHOW_ATTRS_LABELS = 'swissup_compare/design/show_attributes_labels';
 
     /**
      *  @return boolean
@@ -29,6 +30,17 @@ class Data extends AbstractHelper
     {
         return $this->scopeConfig->isSetFlag(
             self::CONFIG_PATH_USE_ALTERNATIVE_DESIGN,
+            ScopeInterface::SCOPE_STORE
+        );
+    }
+
+    /**
+     *  @return boolean
+     */
+    public function showAttributesLabels()
+    {
+        return $this->scopeConfig->isSetFlag(
+            self::CONFIG_PATH_SHOW_ATTRS_LABELS,
             ScopeInterface::SCOPE_STORE
         );
     }

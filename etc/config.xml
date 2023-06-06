@@ -5,8 +5,11 @@
         <swissup_compare>
             <general>
                 <enabled>1</enabled>
-                <use_alternative_design>1</use_alternative_design>
             </general>
+            <design>
+                <use_alternative_design>1</use_alternative_design>
+                <show_attributes_labels>1</show_attributes_labels>
+            </design>
         </swissup_compare>
     </default>
 </config>
