@@ -230,6 +230,17 @@
             }
         }
     }
+    &::-webkit-scrollbar {
+        width: 0;
+        border-bottom: @row_border;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: @scrollbar_bg-color;
+        &:hover {
+            background-color: @scrollbar-hover_bg-color;
+        }
+    }
+
 }
 
 @media (min-width: 767px) {
