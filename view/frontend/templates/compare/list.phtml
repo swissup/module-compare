@@ -16,6 +16,10 @@ $output = $this->helper('Magento\Catalog\Helper\Output');
 $isAllow = $this->helper('Magento\Wishlist\Helper\Data')->isAllow();
 $showAttributesLabels = $this->helper('Swissup\Compare\Helper\Data')->showAttributesLabels();
 $isStickyHeader = $this->helper('Swissup\Compare\Helper\Data')->isStickyEnabled();
+$stickyHeaderId = 'sticky-header-off';
+if ($isStickyHeader) {
+    $stickyHeaderId = 'sticky-header-on';
+}
 ?>
 <?php if ($total): ?>
     <div class="actions comparison">
@@ -32,7 +36,7 @@ $isStickyHeader = $this->helper('Swissup\Compare\Helper\Data')->isStickyEnabled(
             <span><?= /* @escapeNotVerified */ __('Print This Page') ?></span>
         </a>
     </div>
-    <div class="table-wrapper comparison" data-mage-init='{"Swissup_Compare/js/compare": {"table": ".table-comparison", "windowPrintSelector":".action.print"}}'>
+    <div id="<?= $stickyHeaderId ?>" class="table-wrapper comparison" data-mage-init='{"Swissup_Compare/js/compare": {"table": ".table-comparison", "windowPrintSelector":".action.print"}}'>
         <table class="data table table-comparison" id="product-comparison">
             <caption class="table-caption"><?= /* @escapeNotVerified */ __('Compare Products') ?></caption>
             <thead>
