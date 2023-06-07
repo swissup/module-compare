@@ -15,6 +15,7 @@ $compare = $this->helper('Magento\Catalog\Helper\Product\Compare');
 $output = $this->helper('Magento\Catalog\Helper\Output');
 $isAllow = $this->helper('Magento\Wishlist\Helper\Data')->isAllow();
 $showAttributesLabels = $this->helper('Swissup\Compare\Helper\Data')->showAttributesLabels();
+$isStickyHeader = $this->helper('Swissup\Compare\Helper\Data')->isStickyEnabled();
 ?>
 <?php if ($total): ?>
     <div class="actions comparison">

@@ -82,12 +82,7 @@
                     font-weight: bold;
                 }
                 th {
-                    &.label.product {
-                        display: flex;
-                        position: absolute;
-                        bottom: 50%;
-                        transform: translateY(-50%);
-                    }
+                    background-color: @color__white;
                     &.cell.label { border: 0; }
                 }
                 td {
@@ -146,7 +141,8 @@
         }
 
         .tgl + .tgl-btn {
-            position: relative;
+            position: absolute;
+            top: 50%;
             cursor: pointer;
             width: 100%;
             height: 2rem;
@@ -177,12 +173,13 @@
             &:before {
               display: flex;
               width: 100%;
+              min-width: 140px;
               align-items: center;
               justify-content: center;
               position: absolute;
               font-weight: 500;
               color: @color__white;
-              padding: 7px 15px;
+              padding: 7px 12px;
               transition: all .4s ease;
               -webkit-backface-visibility: hidden;
                       backface-visibility: hidden;
@@ -234,12 +231,14 @@
     .comparison {
         .table-comparison {
             margin-top: initial;
+            thead,
             tbody {
                 tr {
                     th {
                         position: sticky;
                         left: 0;
                         border-left: 0;
+                        z-index: 11;
                     }
                 }
             }

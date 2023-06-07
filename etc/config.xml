@@ -8,6 +8,7 @@
             </general>
             <design>
                 <use_alternative_design>1</use_alternative_design>
+                <sticky_header>0</sticky_header>
                 <show_attributes_labels>1</show_attributes_labels>
             </design>
         </swissup_compare>
