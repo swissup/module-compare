@@ -1,5 +1,20 @@
-@import '/variables.less';
-@import '/icons.less';
+:root {
+    --color__white: #ffffff;
+    --color__red: #f54336;
+    --color__dark-red: #c53227;
+    --color__green: #42ca49;
+    --color__dark-green: #30a936;
+    --color__link: #3e9bf7;
+    --font_family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+    --scrollbar_bg-color: #cacaca;
+    --scrollbar-hover_bg-color: #555;
+    --white_borders: 1px solid --color__white;
+    --row_border: 1px solid #cccccc;
+    --cell-bg__color: rgba(230,230,230,.25);
+    --cell-attribute-bg__color: rgba(230,230,230, 1);
+    --cell-hover-bg__color: rgba(230,230,230,.5);
+}
 
 .comparison {
     &.actions {
@@ -25,7 +40,7 @@
                 &:checked ~ label {
                     &:before {
                         content: attr(data-icon-on);
-                        background: url(@circle_diff);
+                        background: url('../images/pause-circle-outline.svg');
                         background-repeat: no-repeat;
                         height: 20px;
                     }
@@ -43,11 +58,11 @@
                     display: flex;
                     cursor: pointer;
                     padding: .5rem 2.75rem;
-                    color: @color__link;
+                    color: var(--color__link);
                 }
                 &:after {
                     content: attr(data-icon-off);
-                    background: url(@circle_all);
+                    background: url('../images/filter-circle-outline.svg');
                     background-repeat: no-repeat;
                     height: 18px;
                 }
@@ -63,7 +78,7 @@
     .table-comparison {
         margin-top: 1rem;
         thead {
-            background: @color__white;
+            background: var(--color__white);
             tr {
                 position: relative;
                 .product-item-photo {
@@ -83,7 +98,7 @@
                 }
                 th {
                     position: relative;
-                    background-color: @color__white;
+                    background-color: var(--color__white);
                     &.cell.label { border: 0; }
                 }
                 td {
@@ -102,19 +117,19 @@
         tbody {
             tr {
                 th {
-                    background-color: @cell-attribute-bg__color;
-                    border: @white_borders;
+                    background-color: var(--cell-attribute-bg__color);
+                    border: var(--white_borders);
                 }
                 transition: background-color .1s ease-in;
                 &:not(:last-child) {
-                    border-bottom: @row_border;
+                    border-bottom: var(--row_border);
                 }
                 &:hover {
-                    background-color: @cell-hover-bg__color;
+                    background-color: var(--cell-hover-bg__color);
                 }
                 td {
                     &:nth-child(odd) {
-                        background: @cell-bg__color;
+                        background: var(--cell-bg__color);
                     }
                     &.cell.attribute {
                         text-align: center;
@@ -166,7 +181,7 @@
         .tgl-flip + .tgl-btn {
             -webkit-perspective: 100px;
             perspective: 100px;
-            font-family: @font_family;
+            font-family: var(--font_family);
 
             &:after,
             &:before {
@@ -177,7 +192,7 @@
               justify-content: center;
               position: absolute;
               font-weight: 500;
-              color: @color__white;
+              color: var(--color__white);
               padding: 7px 12px;
               transition: all .3s ease-in-out;
               -webkit-backface-visibility: hidden;
@@ -186,21 +201,21 @@
             }
             &:after {
               content: attr(data-tg-on);
-              background: @color__green;
+              background: var(--color__green);
               -webkit-transform: rotateX(-180deg);
                       transform: rotateX(-180deg);
 
             }
             &:before {
-              background: @color__red;
+              background: var(--color__red);
               content: attr(data-tg-off);
             }
           &:hover {
             &:before {
-                background: @color__dark-red;
+                background: var(--color__dark-red);
             }
             &:after {
-                background: @color__dark-green;
+                background: var(--color__dark-green);
             }
           }
         }
@@ -224,7 +239,7 @@
     .table-comparison {
         thead {
             td {
-                background-color: @color__white;
+                background-color: var(--color__white);
                 position: sticky;
                 top: 0;
             }
@@ -232,12 +247,12 @@
     }
     &::-webkit-scrollbar {
         width: 0;
-        border-bottom: @row_border;
+        border-bottom: var(--row_border);
     }
     &::-webkit-scrollbar-thumb {
-        background-color: @scrollbar_bg-color;
+        background-color: var(--scrollbar_bg-color);
         &:hover {
-            background-color: @scrollbar-hover_bg-color;
+            background-color: var(--scrollbar-hover_bg-color);
         }
     }
 
