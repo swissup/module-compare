@@ -5,7 +5,7 @@
         "compare"
     ],
     "type": "magento2-module",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "license": "OSL-3.0",
     "require": {
         "swissup/module-core": "^1.12.16"
