@@ -5,7 +5,7 @@ define([
 
     var result;
 
-    function hasDifference (tr) {
+    function hasDifference(tr) {
         var isDifference = false;
 
         $('td', tr).each(function (index, td) {
@@ -26,16 +26,17 @@ define([
         return isDifference;
     }
 
-    result = function (config, element) {
+    result = function (config) {
         let table = config.table,
             tableRows = $(table + ' tbody tr'),
             btnDifferences = $('[name="btn_differences"]'),
             optionWindowPrintSelector = config.windowPrintSelector ?? '';
 
-        $(btnDifferences).on("click", function () {
+        $(btnDifferences).on('click', function () {
             if ($(this).is(':checked')) {
                 tableRows.each(function (index, tr) {
                     let attributes = $('div.value', tr);
+
                     if (attributes.length) {
                         if (!hasDifference(tr)) {
                             $(tr).hide(300);
@@ -47,7 +48,6 @@ define([
                     $(tr).show(300);
                 });
             }
-
         });
 
         $(optionWindowPrintSelector).on('click', function (e) {
