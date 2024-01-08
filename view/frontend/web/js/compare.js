@@ -1,13 +1,9 @@
-(function (factory) {
+define([
+    'jquery'
+], function ($) {
     'use strict';
 
-    if (typeof define === 'function' && define.amd) {
-        define(['jquery'], factory);
-    } else {
-        $.compare = factory($);
-    }
-}(function ($) {
-    'use strict';
+    var result;
 
     function hasDifference (tr) {
         var isDifference = false;
@@ -30,7 +26,7 @@
         return isDifference;
     }
 
-    return function (config, element) {
+    result = function (config, element) {
         let table = config.table,
             tableRows = $(table + ' tbody tr'),
             btnDifferences = $('[name="btn_differences"]'),
@@ -58,6 +54,9 @@
             e.preventDefault();
             window.print();
         });
-    }
+    };
 
-}));
+    result.component = 'Swissup_Compare/js/compare';
+
+    return result;
+});
