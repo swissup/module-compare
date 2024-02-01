@@ -9,6 +9,9 @@
                         <item name="items" xsi:type="array">
                             <item name="Swissup_Compare/js/compare" xsi:type="array">
                                 <item name="path" xsi:type="string">Swissup_Compare/js/compare</item>
+                                <item name="load" xsi:type="array">
+                                    <item name="onRequire" xsi:type="boolean">true</item>
+                                </item>
                             </item>
                         </item>
                     </item>
