@@ -1,0 +1,11 @@
+<script type="text/javascript" data-breeze>
+require(['jquery'], function ($) {
+
+    const list = $('.widget.block-highlight .products.list > li');
+    if (list.length === 0 ) return;
+
+    [...list].forEach(item => {
+        $(item).find('.action.tocompare').remove();
+    });
+});
+</script>

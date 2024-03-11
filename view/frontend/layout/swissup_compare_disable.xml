@@ -8,5 +8,9 @@
         <referenceBlock name="crosssell.product.addto.compare" remove="true" />
         <referenceBlock name="related.product.addto.compare" remove="true" />
         <referenceBlock name="upsell.product.addto.compare" remove="true" />
+        <!-- Remove Compare link from the Highlight widgets -->
+        <referenceContainer name="content">
+            <block class="Swissup\Compare\Block\Product\Widget\ProductsList" name="widget.products.list.compare"/>
+        </referenceContainer>
     </body>
 </page>
