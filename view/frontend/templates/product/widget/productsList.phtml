@@ -1,11 +1,13 @@
 <script type="text/javascript" data-breeze>
-require(['jquery'], function ($) {
+    require(['jquery'], function ($) {
+        const highlightList = $('.widget.block-highlight .products.list > li');
+        const productList = $('.widget.block-products-list .product-items > li');
+        const combinedList = [...highlightList, ...productList];
 
-    const list = $('.widget.block-highlight .products.list > li');
-    if (list.length === 0 ) return;
+        if (combinedList.length === 0) return;
 
-    [...list].forEach(item => {
-        $(item).find('.action.tocompare').remove();
+        combinedList.forEach(item => {
+            $(item).find('.action.tocompare').remove();
+        });
     });
-});
 </script>
