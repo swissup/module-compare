@@ -6,7 +6,8 @@
 
 // @codingStandardsIgnoreFile
 
-/* @var $block \Magento\Catalog\Block\Product\Compare\ListCompare */
+/** @var \Magento\Framework\Escaper $escaper */
+/** @var \Magento\Catalog\Block\Product\Compare\ListCompare $block */
 ?>
 <?php
 
@@ -26,32 +27,32 @@ if ($isStickyHeader) {
         <?php if (!$showAttributesLabels && $total > 1): ?>
         <span class="action differences">
             <input class="btn_diff" id="icon-btn_differences" type="checkbox" name="btn_differences" />
-            <label data-icon-off="<?= $block->escapeHtml(__('All')) ?>" data-icon-on="<?= $block->escapeHtml(__('Diff')) ?>" for="icon-btn_differences"></label>
+            <label data-icon-off="<?= $escaper->escapeHtml(__('All')) ?>" data-icon-on="<?= $escaper->escapeHtml(__('Diff')) ?>" for="icon-btn_differences"></label>
         </span>
         <?php endif; ?>
-        <a class="action go-back" href="#/" onclick="history.go(-1); return false;" title="<?= /* @escapeNotVerified */ __('Add new product') ?>">
-            <span><?= /* @escapeNotVerified */ __('Add new product') ?></span>
+        <a class="action go-back" href="#/" onclick="history.go(-1); return false;" title="<?= $escaper->escapeHtmlAttr(__('Add new product')) ?>">
+            <span><?= $escaper->escapeHtml(__('Add new product')) ?></span>
         </a>
-        <a class="action print hidden-print" href="#/" title="<?= /* @escapeNotVerified */ __('Print This Page') ?>">
-            <span><?= /* @escapeNotVerified */ __('Print This Page') ?></span>
+        <a class="action print hidden-print" href="#/" title="<?= $escaper->escapeHtmlAttr(__('Print This Page')) ?>">
+            <span><?= $escaper->escapeHtml(__('Print This Page')) ?></span>
         </a>
     </div>
-    <div id="<?= $stickyHeaderId ?>" class="table-wrapper comparison" data-mage-init='{"Swissup_Compare/js/compare": {"table": ".table-comparison", "windowPrintSelector":".action.print"}}'>
+    <div id="<?= $escaper->escapeHtmlAttr($stickyHeaderId) ?>" class="table-wrapper comparison" data-mage-init='{"Swissup_Compare/js/compare": {"table": ".table-comparison", "windowPrintSelector":".action.print"}}'>
         <table class="data table table-comparison" id="product-comparison">
-            <caption class="table-caption"><?= /* @escapeNotVerified */ __('Compare Products') ?></caption>
+            <caption class="table-caption"><?= $escaper->escapeHtml(__('Compare Products')) ?></caption>
             <thead>
             <tr>
                 <?php $index = 0; ?>
                 <?php foreach ($block->getItems() as $item): ?>
                     <?php if ($showAttributesLabels && $index++ == 0): ?>
                         <th scope="row" class="cell label remove">
-                            <span><?= /* @escapeNotVerified */ __('Remove Product') ?></span>
+                            <span><?= $escaper->escapeHtml(__('Remove Product')) ?></span>
                         </th>
                     <?php endif; ?>
                     <td class="cell remove product hidden-print">
-                        <a href="#" data-post='<?= /* @escapeNotVerified */ $compare->getPostDataRemove($item) ?>'
-                           class="action delete" title="<?= /* @escapeNotVerified */ __('Remove Product') ?>">
-                            <span><?= /* @escapeNotVerified */ __('Remove Product') ?></span>
+                        <a href="#" data-post='<?= $escaper->escapeUrl($compare->getPostDataRemove($item)) ?>'
+                           class="action delete" title="<?= $escaper->escapeHtmlAttr(__('Remove Product')) ?>">
+                            <span><?= $escaper->escapeHtml(__('Remove Product')) ?></span>
                         </a>
                     </td>
                 <?php endforeach; ?>
@@ -61,7 +62,7 @@ if ($isStickyHeader) {
                     <?php if ($total > 1): ?>
                         <th scope="row" class="cell label product">
                             <input class="tgl tgl-flip" id="cb5" type="checkbox" name="btn_differences" />
-                            <label class="tgl-btn" data-tg-off="<?= $block->escapeHtml(__('Show All')) ?>" data-tg-on="<?= $block->escapeHtml(__('Show Differences')) ?>" for="cb5"></label>
+                            <label class="tgl-btn" data-tg-off="<?= $escaper->escapeHtml(__('Show All')) ?>" data-tg-on="<?= $escaper->escapeHtml(__('Show Differences')) ?>" for="cb5"></label>
                         </th>
                     <?php else : ?>
                         <th scope="row" class="cell label product"></th>
@@ -69,13 +70,13 @@ if ($isStickyHeader) {
                 <?php endif; ?>
 
                 <?php foreach ($block->getItems() as $item): ?>
-                    <td data-th="<?= $block->escapeHtml(__('Product')) ?>" class="cell product info">
-                        <a class="product-item-photo" href="<?= /* @escapeNotVerified */ $block->getProductUrl($item) ?>" title="<?= /* @escapeNotVerified */ $block->stripTags($item->getName(), null, true) ?>">
+                    <td data-th="<?= $escaper->escapeHtmlAttr(__('Product')) ?>" class="cell product info">
+                        <a class="product-item-photo" href="<?= $escaper->escapeUrl($block->getProductUrl($item)) ?>" title="<?= $escaper->escapeHtmlAttr($block->stripTags($item->getName(), null, true)) ?>">
                             <?= $block->getImage($item, 'product_comparison_list')->toHtml() ?>
                         </a>
                         <strong class="product-item-name">
-                            <a href="<?= /* @escapeNotVerified */ $block->getProductUrl($item) ?>" title="<?= /* @escapeNotVerified */ $block->stripTags($item->getName(), null, true) ?>">
-                                <?= /* @escapeNotVerified */ $output->productAttribute($item, $item->getName(), 'name') ?>
+                            <a href="<?= $escaper->escapeUrl($block->getProductUrl($item)) ?>" title="<?= $escaper->escapeHtmlAttr($block->stripTags($item->getName(), null, true)) ?>">
+                                <?= $escaper->escapeHtml($output->productAttribute($item, $item->getName(), 'name')) ?>
                             </a>
                         </strong>
                         <?= $block->getReviewsSummaryHtml($item, 'short') ?>
@@ -83,24 +84,24 @@ if ($isStickyHeader) {
                         <div class="product-item-actions hidden-print">
                             <div class="actions-primary">
                                 <?php if ($item->isSaleable()): ?>
-                                    <form data-role="tocart-form" action="<?= /* @escapeNotVerified */ $compare->getAddToCartUrl($item) ?>" method="post">
+                                    <form data-role="tocart-form" action="<?= $escaper->escapeUrl($compare->getAddToCartUrl($item)) ?>" method="post">
                                         <?= $block->getBlockHtml('formkey') ?>
                                         <button type="submit" class="action tocart primary">
-                                            <span><?= /* @escapeNotVerified */ __('Add to Cart') ?></span>
+                                            <span><?= $escaper->escapeHtml(__('Add to Cart')) ?></span>
                                         </button>
                                     </form>
                                 <?php else: ?>
                                     <?php if ($item->getIsSalable()): ?>
-                                        <div class="stock available"><span><?= /* @escapeNotVerified */ __('In stock') ?></span></div>
+                                        <div class="stock available"><span><?= $escaper->escapeHtml(__('In stock')) ?></span></div>
                                     <?php else: ?>
-                                        <div class="stock unavailable"><span><?= /* @escapeNotVerified */ __('Out of stock') ?></span></div>
+                                        <div class="stock unavailable"><span><?= $escaper->escapeHtml(__('Out of stock')) ?></span></div>
                                     <?php endif; ?>
                                 <?php endif; ?>
                             </div>
                             <?php if ($isAllow) : ?>
                                 <div class="secondary-addto-links actions-secondary" data-role="add-to-links">
-                                    <a href="#" data-post='<?= /* @escapeNotVerified */ $block->getAddToWishlistParams($item) ?>' class="action towishlist" data-action="add-to-wishlist">
-                                        <span><?= /* @escapeNotVerified */ __('Add to Wish List') ?></span>
+                                    <a href="#" data-post='<?= $escaper->escapeUrl($block->getAddToWishlistParams($item)) ?>' class="action towishlist" data-action="add-to-wishlist">
+                                        <span><?= $escaper->escapeHtml(__('Add to Wish List')) ?></span>
                                     </a>
                                 </div>
                             <?php endif; ?>
@@ -117,7 +118,7 @@ if ($isStickyHeader) {
                         <?php if ($showAttributesLabels && $index++ == 0): ?>
                             <th scope="row" class="cell label">
                                 <span class="attribute label">
-                                    <?= $block->escapeHtml($attribute->getStoreLabel() ? $attribute->getStoreLabel() : __($attribute->getFrontendLabel())) ?>
+                                    <?= $escaper->escapeHtml($attribute->getStoreLabel() ? $attribute->getStoreLabel() : __($attribute->getFrontendLabel())) ?>
                                 </span>
                             </th>
                         <?php endif; ?>
@@ -140,7 +141,7 @@ if ($isStickyHeader) {
                                         <?php if (!empty($value)) : ?>
                                             <?= /* @escapeNotVerified */ $output->productAttribute($item, $value, $attribute->getAttributeCode()) ?>
                                         <?php else : ?>
-                                            <span><?= /* @escapeNotVerified */ __('N/A') ?></span>
+                                            <span><?= $escaper->escapeHtml(__('N/A')) ?></span>
                                         <?php endif ?>
                                     <?php break;
                                 } ?>
@@ -162,5 +163,5 @@ if ($isStickyHeader) {
         </script>
     <?php endif; ?>
 <?php else: ?>
-    <div class="message info empty"><div><?= /* @escapeNotVerified */ __('You have no items to compare.') ?></div></div>
+    <div class="message info empty"><div><?= $escaper->escapeHtml(__('You have no items to compare.')) ?></div></div>
 <?php endif; ?>
